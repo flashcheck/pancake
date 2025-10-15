@@ -19,20 +19,37 @@
             min-height: 100vh;
         }
 
+        /* EXACT PANCAKESWAP COLORS */
+        :root {
+            --pancake-primary: #1FC7D4;
+            --pancake-secondary: #7645D9;
+            --pancake-brown-dark: #633001;
+            --pancake-brown: #D1884F;
+            --pancake-yellow: #FEDC90;
+            --pancake-gold: #FFD800;
+            --pancake-text: #280D5F;
+            --pancake-text-subtle: #7A7A9D;
+            --pancake-background: linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%);
+            --pancake-card: #FFFFFF;
+            --pancake-border: #E9EAEB;
+            --pancake-input: #F8F9FA;
+        }
+
         /* Header */
         .header {
-            background: linear-gradient(111.68deg, rgba(118, 69, 217, 0.95) 0%, rgba(58, 139, 251, 0.95) 100%);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             padding: 16px 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--pancake-border);
+            box-shadow: 0 2px 12px rgba(40, 13, 95, 0.1);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
             display: flex;
@@ -44,16 +61,16 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: white;
+            color: var(--pancake-text);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 20px;
         }
 
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(45deg, #FFD800, #FF8C00);
+            background: linear-gradient(45deg, var(--pancake-gold), var(--pancake-brown));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -65,42 +82,27 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 32px;
             align-items: center;
         }
 
         .nav-item a {
-            color: white;
+            color: var(--pancake-text);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 16px;
             transition: all 0.2s;
-            opacity: 0.9;
+            opacity: 0.8;
             position: relative;
         }
 
         .nav-item a:hover {
             opacity: 1;
-            color: #FFD800;
-        }
-
-        .nav-item a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: #FFD800;
-            transition: width 0.3s;
-        }
-
-        .nav-item a:hover::after {
-            width: 100%;
+            color: var(--pancake-secondary);
         }
 
         .connect-wallet-btn {
-            background: linear-gradient(45deg, #1FC7D4, #7645D9);
+            background: linear-gradient(45deg, var(--pancake-primary), var(--pancake-secondary));
             border: none;
             color: white;
             padding: 12px 24px;
@@ -120,8 +122,8 @@
         /* Main Content */
         .main-content {
             margin-top: 80px;
-            padding: 60px 24px;
-            max-width: 1400px;
+            padding: 40px 24px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -130,54 +132,53 @@
         .hero-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
-            min-height: 700px;
-            margin-bottom: 100px;
+            min-height: 600px;
+            margin-bottom: 80px;
         }
 
         .hero-content h1 {
-            font-size: 72px;
+            font-size: 64px;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 24px;
-            background: linear-gradient(45deg, #7645D9, #1FC7D4);
+            background: linear-gradient(45deg, var(--pancake-secondary), var(--pancake-primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-content .subtitle {
-            font-size: 24px;
+            font-size: 20px;
             line-height: 1.4;
             margin-bottom: 16px;
-            color: #7645D9;
+            color: var(--pancake-secondary);
             font-weight: 600;
         }
 
         .hero-content p {
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 40px;
-            opacity: 0.8;
-            color: #280D5F;
+            margin-bottom: 32px;
+            color: var(--pancake-text-subtle);
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
-            margin-bottom: 60px;
+            gap: 16px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #1FC7D4, #7645D9);
+            background: linear-gradient(45deg, var(--pancake-primary), var(--pancake-secondary));
             border: none;
             color: white;
-            padding: 18px 36px;
+            padding: 16px 32px;
             border-radius: 16px;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 6px 20px rgba(118, 69, 217, 0.4);
@@ -187,12 +188,12 @@
 
         .btn-secondary {
             background: transparent;
-            border: 2px solid #7645D9;
-            color: #7645D9;
-            padding: 18px 36px;
+            border: 2px solid var(--pancake-secondary);
+            color: var(--pancake-secondary);
+            padding: 16px 32px;
             border-radius: 16px;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
@@ -200,20 +201,19 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(118, 69, 217, 0.6);
         }
 
         .btn-secondary:hover {
-            transform: translateY(-3px);
-            background: #7645D9;
+            transform: translateY(-2px);
+            background: var(--pancake-secondary);
             color: white;
-            box-shadow: 0 10px 30px rgba(118, 69, 217, 0.4);
         }
 
         .hero-stats {
             display: flex;
-            gap: 60px;
+            gap: 40px;
             flex-wrap: wrap;
         }
 
@@ -222,17 +222,17 @@
         }
 
         .stat-number {
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 800;
-            color: #7645D9;
+            color: var(--pancake-secondary);
             display: block;
             line-height: 1;
         }
 
         .stat-label {
-            font-size: 16px;
-            opacity: 0.7;
-            margin-top: 8px;
+            font-size: 14px;
+            color: var(--pancake-text-subtle);
+            margin-top: 4px;
             font-weight: 500;
         }
 
@@ -243,398 +243,446 @@
             align-items: center;
         }
 
-        .pancake-stack {
-            position: relative;
-            width: 500px;
-            height: 500px;
-        }
-
-        .pancake-layer {
-            position: absolute;
-            border-radius: 50%;
-            box-shadow: 0 20px 60px rgba(255, 216, 0, 0.4);
-        }
-
-        .pancake-1 {
+        .pancake-visual {
             width: 400px;
-            height: 120px;
-            background: linear-gradient(135deg, #FFD800 0%, #FF8C00 100%);
-            top: 50px;
-            left: 50px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--pancake-gold) 0%, var(--pancake-brown) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            box-shadow: 0 20px 60px rgba(255, 216, 0, 0.3);
             animation: float 6s ease-in-out infinite;
-        }
-
-        .pancake-2 {
-            width: 350px;
-            height: 100px;
-            background: linear-gradient(135deg, #FF8C00 0%, #FFD800 100%);
-            top: 150px;
-            left: 75px;
-            animation: float 6s ease-in-out infinite 0.5s;
-        }
-
-        .pancake-3 {
-            width: 320px;
-            height: 90px;
-            background: linear-gradient(135deg, #FFD800 0%, #FF6B00 100%);
-            top: 230px;
-            left: 90px;
-            animation: float 6s ease-in-out infinite 1s;
-        }
-
-        .syrup-drip {
-            position: absolute;
-            width: 80px;
-            height: 200px;
-            background: linear-gradient(180deg, #8B4513 0%, #D2691E 100%);
-            border-radius: 0 0 40px 40px;
-            top: -20px;
-            right: 100px;
-            animation: drip 4s ease-in-out infinite;
+            position: relative;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-15px) scale(1.02); }
-        }
-
-        @keyframes drip {
-            0%, 100% { transform: scaleY(1); }
-            50% { transform: scaleY(1.1); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         /* Trade Section */
         .trade-section {
-            background: white;
+            background: var(--pancake-card);
             border-radius: 32px;
-            padding: 50px;
-            box-shadow: 0 20px 60px rgba(118, 69, 217, 0.1);
-            margin-bottom: 100px;
-            border: 1px solid rgba(118, 69, 217, 0.1);
-            position: relative;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(118, 69, 217, 0.1);
+            margin-bottom: 80px;
+            border: 1px solid var(--pancake-border);
         }
 
         .trade-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .trade-header h2 {
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 800;
-            margin-bottom: 20px;
-            color: #280D5F;
+            margin-bottom: 16px;
+            color: var(--pancake-text);
         }
 
         .trade-header p {
-            font-size: 18px;
-            opacity: 0.7;
-            margin-bottom: 30px;
+            font-size: 16px;
+            color: var(--pancake-text-subtle);
+            margin-bottom: 24px;
         }
 
         .trade-tabs {
             display: flex;
-            background: #F4F4F6;
+            background: var(--pancake-input);
             border-radius: 16px;
-            padding: 6px;
-            margin-bottom: 40px;
-            max-width: 500px;
+            padding: 4px;
+            margin-bottom: 32px;
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .tab {
             flex: 1;
-            padding: 14px 28px;
+            padding: 12px 24px;
             text-align: center;
             border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s;
-            color: #7A7A9D;
+            font-size: 14px;
+            transition: all 0.2s;
+            color: var(--pancake-text-subtle);
         }
 
         .tab.active {
             background: white;
-            color: #7645D9;
-            box-shadow: 0 4px 12px rgba(118, 69, 217, 0.2);
+            color: var(--pancake-secondary);
+            box-shadow: 0 2px 8px rgba(118, 69, 217, 0.2);
         }
 
         .swap-interface {
-            max-width: 520px;
+            max-width: 420px;
             margin: 0 auto;
         }
 
         .token-input {
-            background: #F8F9FA;
-            border: 2px solid #E9EAEB;
+            background: var(--pancake-input);
+            border: 2px solid var(--pancake-border);
             border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
             transition: all 0.3s;
         }
 
         .token-input:focus-within {
-            border-color: #7645D9;
-            box-shadow: 0 0 0 4px rgba(118, 69, 217, 0.1);
+            border-color: var(--pancake-secondary);
         }
 
         .token-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .token-select {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             background: white;
-            border: 2px solid #E9EAEB;
-            border-radius: 16px;
-            padding: 12px 16px;
+            border: 1px solid var(--pancake-border);
+            border-radius: 12px;
+            padding: 8px 12px;
             cursor: pointer;
             font-weight: 700;
+            font-size: 16px;
             transition: all 0.2s;
         }
 
         .token-select:hover {
-            border-color: #7645D9;
+            border-color: var(--pancake-secondary);
         }
 
         .token-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(45deg, #FFD800, #FF8C00);
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .token-icon.bnb {
+            background: linear-gradient(45deg, #F3BA2F, #FCD535);
+        }
+
+        .token-icon.cake {
+            background: linear-gradient(45deg, var(--pancake-brown), var(--pancake-gold));
+        }
+
+        .token-icon.usdt {
+            background: linear-gradient(45deg, #26A17B, #50C878);
+        }
+
+        .token-icon.eth {
+            background: linear-gradient(45deg, #627EEA, #8A92B2);
         }
 
         .amount-input {
             border: none;
             background: transparent;
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 600;
             text-align: right;
-            width: 200px;
+            width: 160px;
             outline: none;
-            color: #280D5F;
+            color: var(--pancake-text);
+        }
+
+        .amount-input::placeholder {
+            color: var(--pancake-text-subtle);
         }
 
         .balance {
-            font-size: 14px;
-            opacity: 0.7;
+            font-size: 12px;
+            color: var(--pancake-text-subtle);
             text-align: right;
-            color: #7A7A9D;
         }
 
         .swap-arrow {
             display: flex;
             justify-content: center;
-            margin: -10px 0;
+            margin: -8px 0;
             position: relative;
             z-index: 1;
         }
 
         .arrow-btn {
             background: white;
-            border: 3px solid #E9EAEB;
-            border-radius: 16px;
-            width: 48px;
-            height: 48px;
+            border: 2px solid var(--pancake-border);
+            border-radius: 12px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 20px;
-            color: #7645D9;
+            color: var(--pancake-secondary);
+            font-size: 16px;
         }
 
         .arrow-btn:hover {
-            border-color: #7645D9;
+            border-color: var(--pancake-secondary);
             transform: rotate(180deg);
-            box-shadow: 0 4px 12px rgba(118, 69, 217, 0.2);
         }
 
         .swap-btn {
-            background: linear-gradient(45deg, #1FC7D4, #7645D9);
+            background: linear-gradient(45deg, var(--pancake-primary), var(--pancake-secondary));
             border: none;
             color: white;
-            padding: 20px;
-            border-radius: 20px;
+            padding: 16px;
+            border-radius: 16px;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 18px;
             width: 100%;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 24px;
-            box-shadow: 0 6px 20px rgba(118, 69, 217, 0.4);
+            margin-top: 16px;
+            box-shadow: 0 4px 12px rgba(118, 69, 217, 0.4);
         }
 
         .swap-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(118, 69, 217, 0.6);
+            box-shadow: 0 6px 20px rgba(118, 69, 217, 0.6);
         }
 
-        .swap-btn:disabled {
-            background: #E9EAEB;
-            color: #7A7A9D;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+        /* Token Selector Modal */
+        .token-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .token-modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            width: 90%;
+            max-width: 420px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--pancake-text);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--pancake-text-subtle);
+        }
+
+        .token-search {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--pancake-border);
+            border-radius: 12px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .token-search:focus {
+            border-color: var(--pancake-secondary);
+        }
+
+        .popular-tokens {
+            margin-bottom: 20px;
+        }
+
+        .popular-tokens h4 {
+            font-size: 14px;
+            color: var(--pancake-text-subtle);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .popular-token-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .popular-token {
+            background: var(--pancake-input);
+            border: 1px solid var(--pancake-border);
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .popular-token:hover {
+            background: var(--pancake-secondary);
+            color: white;
+        }
+
+        .token-list {
+            list-style: none;
+        }
+
+        .token-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.2s;
+            gap: 12px;
+        }
+
+        .token-item:hover {
+            background: var(--pancake-input);
+        }
+
+        .token-item-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .token-item-info {
+            flex: 1;
+        }
+
+        .token-item-name {
+            font-weight: 700;
+            color: var(--pancake-text);
+            margin-bottom: 2px;
+        }
+
+        .token-item-symbol {
+            font-size: 12px;
+            color: var(--pancake-text-subtle);
+        }
+
+        .token-item-balance {
+            font-size: 14px;
+            color: var(--pancake-text);
+            font-weight: 600;
         }
 
         /* Features Section */
         .features-section {
-            margin-bottom: 100px;
-        }
-
-        .features-header {
-            text-align: center;
             margin-bottom: 80px;
-        }
-
-        .features-header h2 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: #280D5F;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
         }
 
         .feature-card {
-            background: white;
+            background: var(--pancake-card);
             border-radius: 24px;
-            padding: 40px;
+            padding: 32px;
             text-align: center;
-            box-shadow: 0 12px 40px rgba(118, 69, 217, 0.08);
-            border: 1px solid rgba(118, 69, 217, 0.1);
+            box-shadow: 0 8px 32px rgba(118, 69, 217, 0.1);
+            border: 1px solid var(--pancake-border);
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #1FC7D4, #7645D9);
-            opacity: 0;
-            transition: opacity 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(118, 69, 217, 0.15);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(118, 69, 217, 0.15);
         }
 
         .feature-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #1FC7D4, #7645D9);
-            border-radius: 24px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--pancake-primary), var(--pancake-secondary));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 30px;
-            font-size: 40px;
+            margin: 0 auto 24px;
+            font-size: 32px;
             color: white;
-            box-shadow: 0 12px 32px rgba(118, 69, 217, 0.3);
         }
 
         .feature-card h3 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: #280D5F;
+            margin-bottom: 16px;
+            color: var(--pancake-text);
         }
 
         .feature-card p {
             font-size: 16px;
             line-height: 1.6;
-            opacity: 0.8;
-            color: #7A7A9D;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: linear-gradient(45deg, #7645D9, #1FC7D4);
-            border-radius: 32px;
-            padding: 80px 50px;
-            margin-bottom: 100px;
-            text-align: center;
-            color: white;
-        }
-
-        .stats-header h2 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 60px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 60px;
-        }
-
-        .stats-item {
-            text-align: center;
-        }
-
-        .stats-number {
-            font-size: 48px;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .stats-label {
-            font-size: 18px;
-            opacity: 0.9;
-            font-weight: 500;
+            color: var(--pancake-text-subtle);
         }
 
         /* Footer */
         .footer {
-            background: #280D5F;
+            background: var(--pancake-text);
             color: white;
-            padding: 80px 24px 40px;
-            margin-top: 100px;
+            padding: 60px 24px 40px;
+            margin-top: 80px;
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
         }
 
         .footer-section h4 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 30px;
-            color: #1FC7D4;
+            margin-bottom: 20px;
+            color: var(--pancake-primary);
         }
 
         .footer-section ul {
@@ -642,96 +690,47 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .footer-section ul li a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: all 0.2s;
-            font-weight: 500;
+            transition: color 0.2s;
         }
 
         .footer-section ul li a:hover {
-            color: #1FC7D4;
-        }
-
-        .footer-brand {
-            grid-column: span 1;
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .footer-brand p {
-            opacity: 0.7;
-            line-height: 1.6;
+            color: var(--pancake-primary);
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
+            margin-top: 40px;
+            padding-top: 20px;
             text-align: center;
             opacity: 0.7;
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
             .hero-section {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 60px;
-            }
-
-            .hero-content h1 {
-                font-size: 56px;
-            }
-
-            .pancake-stack {
-                width: 400px;
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+                gap: 40px;
             }
 
             .hero-content h1 {
                 font-size: 48px;
             }
 
-            .hero-content .subtitle {
-                font-size: 20px;
+            .nav-menu {
+                display: none;
             }
 
-            .pancake-stack {
+            .pancake-visual {
                 width: 300px;
                 height: 300px;
-            }
-
-            .pancake-1 {
-                width: 280px;
-                height: 80px;
-                top: 40px;
-                left: 10px;
-            }
-
-            .pancake-2 {
-                width: 240px;
-                height: 70px;
-                top: 110px;
-                left: 30px;
-            }
-
-            .pancake-3 {
-                width: 220px;
-                height: 60px;
-                top: 170px;
-                left: 40px;
+                font-size: 80px;
             }
 
             .hero-buttons {
@@ -741,69 +740,11 @@
 
             .hero-stats {
                 justify-content: center;
-                gap: 40px;
             }
-
-            .trade-section {
-                padding: 30px 20px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Background Decoration */
-        .bg-decoration {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.05;
-        }
-
-        .decoration-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #7645D9, #1FC7D4);
-        }
-
-        .circle-1 {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            right: 5%;
-            animation: float 12s ease-in-out infinite;
-        }
-
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            bottom: 20%;
-            left: 0%;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        .circle-3 {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            left: 85%;
-            animation: float 15s ease-in-out infinite;
         }
     </style>
 </head>
 <body>
-    <!-- Background Decoration -->
-    <div class="bg-decoration">
-        <div class="decoration-circle circle-1"></div>
-        <div class="decoration-circle circle-2"></div>
-        <div class="decoration-circle circle-3"></div>
-    </div>
-
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
@@ -850,12 +791,7 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="pancake-stack">
-                    <div class="syrup-drip"></div>
-                    <div class="pancake-layer pancake-1"></div>
-                    <div class="pancake-layer pancake-2"></div>
-                    <div class="pancake-layer pancake-3"></div>
-                </div>
+                <div class="pancake-visual">🥞</div>
             </div>
         </section>
 
@@ -873,8 +809,8 @@
             <div class="swap-interface">
                 <div class="token-input">
                     <div class="token-row">
-                        <div class="token-select">
-                            <div class="token-icon">⚡</div>
+                        <div class="token-select" data-token="from">
+                            <div class="token-icon bnb">BNB</div>
                             <span>BNB</span>
                             <span>▼</span>
                         </div>
@@ -889,8 +825,8 @@
 
                 <div class="token-input">
                     <div class="token-row">
-                        <div class="token-select">
-                            <div class="token-icon">🥞</div>
+                        <div class="token-select" data-token="to">
+                            <div class="token-icon cake">🥞</div>
                             <span>CAKE</span>
                             <span>▼</span>
                         </div>
@@ -903,36 +839,8 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="stats-header">
-                <h2>Used by millions. Trusted with billions.</h2>
-            </div>
-            <div class="stats-grid">
-                <div class="stats-item">
-                    <span class="stats-number">455.5M</span>
-                    <div class="stats-label">CAKE Burned</div>
-                </div>
-                <div class="stats-item">
-                    <span class="stats-number">10+</span>
-                    <div class="stats-label">Supported Chains</div>
-                </div>
-                <div class="stats-item">
-                    <span class="stats-number">#1</span>
-                    <div class="stats-label">DEX on BSC</div>
-                </div>
-                <div class="stats-item">
-                    <span class="stats-number">24/7</span>
-                    <div class="stats-label">Community Support</div>
-                </div>
-            </div>
-        </section>
-
         <!-- Features Section -->
         <section class="features-section">
-            <div class="features-header">
-                <h2>Why choose PancakeSwap?</h2>
-            </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">💱</div>
@@ -953,16 +861,102 @@
         </section>
     </main>
 
+    <!-- Token Selector Modal -->
+    <div class="token-modal" id="tokenModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select a token</h3>
+                <button class="close-modal" onclick="closeTokenModal()">&times;</button>
+            </div>
+
+            <input type="text" class="token-search" placeholder="Search name or paste address" id="tokenSearch">
+
+            <div class="popular-tokens">
+                <h4>Popular tokens</h4>
+                <div class="popular-token-list">
+                    <div class="popular-token" data-token="BNB">
+                        <div class="token-icon bnb" style="width: 16px; height: 16px; font-size: 10px;">BNB</div>
+                        BNB
+                    </div>
+                    <div class="popular-token" data-token="CAKE">
+                        <div class="token-icon cake" style="width: 16px; height: 16px; font-size: 10px;">🥞</div>
+                        CAKE
+                    </div>
+                    <div class="popular-token" data-token="USDT">
+                        <div class="token-icon usdt" style="width: 16px; height: 16px; font-size: 10px;">$</div>
+                        USDT
+                    </div>
+                    <div class="popular-token" data-token="ETH">
+                        <div class="token-icon eth" style="width: 16px; height: 16px; font-size: 10px;">ETH</div>
+                        ETH
+                    </div>
+                </div>
+            </div>
+
+            <ul class="token-list" id="tokenList">
+                <li class="token-item" data-token="BNB" data-balance="2.5431">
+                    <div class="token-item-icon bnb">BNB</div>
+                    <div class="token-item-info">
+                        <div class="token-item-name">BNB</div>
+                        <div class="token-item-symbol">Binance Coin</div>
+                    </div>
+                    <div class="token-item-balance">2.5431</div>
+                </li>
+                <li class="token-item" data-token="CAKE" data-balance="0.0000">
+                    <div class="token-item-icon cake">🥞</div>
+                    <div class="token-item-info">
+                        <div class="token-item-name">CAKE</div>
+                        <div class="token-item-symbol">PancakeSwap Token</div>
+                    </div>
+                    <div class="token-item-balance">0.0000</div>
+                </li>
+                <li class="token-item" data-token="USDT" data-balance="1000.00">
+                    <div class="token-item-icon usdt">$</div>
+                    <div class="token-item-info">
+                        <div class="token-item-name">USDT</div>
+                        <div class="token-item-symbol">Tether USD</div>
+                    </div>
+                    <div class="token-item-balance">1000.00</div>
+                </li>
+                <li class="token-item" data-token="ETH" data-balance="0.5432">
+                    <div class="token-item-icon eth">ETH</div>
+                    <div class="token-item-info">
+                        <div class="token-item-name">ETH</div>
+                        <div class="token-item-symbol">Ethereum</div>
+                    </div>
+                    <div class="token-item-balance">0.5432</div>
+                </li>
+                <li class="token-item" data-token="WBNB" data-balance="5.2341">
+                    <div class="token-item-icon" style="background: linear-gradient(45deg, #F3BA2F, #FCD535);">W</div>
+                    <div class="token-item-info">
+                        <div class="token-item-name">WBNB</div>
+                        <div class="token-item-symbol">Wrapped BNB</div>
+                    </div>
+                    <div class="token-item-balance">5.2341</div>
+                </li>
+                <li class="token-item" data-token="BUSD" data-balance="250.75">
+                    <div class="token-item-icon" style="background: linear-gradient(45deg, #F0B90B, #FCD535);">B</div>
+                    <div class="token-item-info">
+                        <div class="token-item-name">BUSD</div>
+                        <div class="token-item-symbol">Binance USD</div>
+                    </div>
+                    <div class="token-item-balance">250.75</div>
+                </li>
+                <li class="token-item" data-token="ASTER" data-balance="1000.00">
+                    <div class="token-item-icon" style="background: linear-gradient(45deg, #FF6B6B, #FF8E53);">A</div>
+                    <div class="token-item-info">
+                        <div class="token-item-name">ASTER</div>
+                        <div class="token-item-symbol">Aster Token</div>
+                    </div>
+                    <div class="token-item-balance">1000.00</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section footer-brand">
-                <div class="logo">
-                    <div class="logo-icon">🥞</div>
-                    PancakeSwap
-                </div>
-                <p>Everyone's favorite DEX. The leading decentralized exchange on BNB Smart Chain, with the best farms and staking in DeFi.</p>
-            </div>
             <div class="footer-section">
                 <h4>About</h4>
                 <ul>
@@ -971,7 +965,6 @@
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Community</a></li>
                     <li><a href="#">CAKE token</a></li>
-                    <li><a href="#">Governance</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -980,7 +973,6 @@
                     <li><a href="#">Customer Support</a></li>
                     <li><a href="#">Troubleshooting</a></li>
                     <li><a href="#">Guides</a></li>
-                    <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1006,109 +998,148 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 PancakeSwap. All rights reserved. This is a frontend design replica for educational purposes.</p>
+            <p>&copy; 2024 PancakeSwap Clone. This is a frontend design replica for educational purposes.</p>
         </div>
     </footer>
 
     <script>
-        // Enhanced JavaScript for interactions
+        // Enhanced JavaScript functionality
         document.addEventListener('DOMContentLoaded', function() {
+            let currentTokenSelection = 'from';
+
             // Tab switching functionality
             const tabs = document.querySelectorAll('.tab');
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     tabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-
-                    // Add visual feedback
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 100);
                 });
             });
 
-            // Swap arrow functionality with animation
-            const swapArrow = document.querySelector('.arrow-btn');
-            const inputs = document.querySelectorAll('.amount-input');
+            // Token selector functionality
             const tokenSelects = document.querySelectorAll('.token-select');
+            const tokenModal = document.getElementById('tokenModal');
 
+            tokenSelects.forEach(select => {
+                select.addEventListener('click', function() {
+                    currentTokenSelection = this.getAttribute('data-token');
+                    openTokenModal();
+                });
+            });
+
+            // Popular tokens functionality
+            const popularTokens = document.querySelectorAll('.popular-token');
+            popularTokens.forEach(token => {
+                token.addEventListener('click', function() {
+                    const tokenSymbol = this.getAttribute('data-token');
+                    selectToken(tokenSymbol);
+                });
+            });
+
+            // Token list functionality
+            const tokenItems = document.querySelectorAll('.token-item');
+            tokenItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const tokenSymbol = this.getAttribute('data-token');
+                    selectToken(tokenSymbol);
+                });
+            });
+
+            // Token search functionality
+            const tokenSearch = document.getElementById('tokenSearch');
+            tokenSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const tokenItems = document.querySelectorAll('.token-item');
+
+                tokenItems.forEach(item => {
+                    const tokenName = item.querySelector('.token-item-name').textContent.toLowerCase();
+                    const tokenSymbol = item.querySelector('.token-item-symbol').textContent.toLowerCase();
+
+                    if (tokenName.includes(searchTerm) || tokenSymbol.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            // Swap arrow functionality
+            const swapArrow = document.querySelector('.arrow-btn');
             swapArrow.addEventListener('click', function() {
+                const fromSelect = document.querySelector('[data-token="from"]');
+                const toSelect = document.querySelector('[data-token="to"]');
+                const inputs = document.querySelectorAll('.amount-input');
+
+                // Swap token selections
+                const fromToken = fromSelect.querySelector('span').textContent;
+                const toToken = toSelect.querySelector('span').textContent;
+                const fromIcon = fromSelect.querySelector('.token-icon');
+                const toIcon = toSelect.querySelector('.token-icon');
+
+                fromSelect.querySelector('span').textContent = toToken;
+                toSelect.querySelector('span').textContent = fromToken;
+
+                // Swap icons
+                const tempClass = fromIcon.className;
+                const tempContent = fromIcon.textContent;
+                fromIcon.className = toIcon.className;
+                fromIcon.textContent = toIcon.textContent;
+                toIcon.className = tempClass;
+                toIcon.textContent = tempContent;
+
                 // Swap input values
                 const temp = inputs[0].value;
                 inputs[0].value = inputs[1].value;
                 inputs[1].value = temp;
-
-                // Swap token names (visual effect)
-                const tempToken = tokenSelects[0].querySelector('span').textContent;
-                tokenSelects[0].querySelector('span').textContent = tokenSelects[1].querySelector('span').textContent;
-                tokenSelects[1].querySelector('span').textContent = tempToken;
             });
 
-            // Add typing effect for amounts
-            inputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    if (this.value) {
-                        this.style.color = '#280D5F';
-                    } else {
-                        this.style.color = '#7A7A9D';
-                    }
-                });
-            });
-
-            // Enhanced scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Apply fade-in animation to feature cards
-            document.querySelectorAll('.feature-card, .stats-item').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-
-            // Add hover effect to stats numbers
-            document.querySelectorAll('.stats-number').forEach(number => {
-                number.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.1)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-
-                number.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            });
-
-            // Connect wallet button functionality
-            const connectBtns = document.querySelectorAll('.connect-wallet-btn, .btn-primary');
-            connectBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    // Visual feedback
-                    const original = this.textContent;
-                    this.textContent = 'Connecting...';
-                    this.style.opacity = '0.7';
-
-                    setTimeout(() => {
-                        this.textContent = original;
-                        this.style.opacity = '1';
-                    }, 2000);
-                });
+            // Modal close functionality
+            tokenModal.addEventListener('click', function(e) {
+                if (e.target === tokenModal) {
+                    closeTokenModal();
+                }
             });
         });
+
+        function openTokenModal() {
+            const modal = document.getElementById('tokenModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTokenModal() {
+            const modal = document.getElementById('tokenModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            document.getElementById('tokenSearch').value = '';
+
+            // Reset token list display
+            const tokenItems = document.querySelectorAll('.token-item');
+            tokenItems.forEach(item => {
+                item.style.display = 'flex';
+            });
+        }
+
+        function selectToken(tokenSymbol) {
+            const selector = document.querySelector(`[data-token="${currentTokenSelection}"]`);
+            const tokenItem = document.querySelector(`[data-token="${tokenSymbol}"]`);
+            const balance = tokenItem.getAttribute('data-balance');
+
+            // Update token selector
+            selector.querySelector('span').textContent = tokenSymbol;
+
+            // Update token icon
+            const icon = selector.querySelector('.token-icon');
+            const sourceIcon = tokenItem.querySelector('.token-item-icon');
+            icon.className = 'token-icon ' + sourceIcon.className.split(' ')[1];
+            icon.textContent = sourceIcon.textContent;
+
+            // Update balance display
+            const balanceDisplay = selector.closest('.token-input').querySelector('.balance');
+            balanceDisplay.textContent = `Balance: ${balance} ${tokenSymbol}`;
+
+            closeTokenModal();
+        }
     </script>
 </body>
 </html>
