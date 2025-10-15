@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PancakeSwap - The best DEX on BNB Smart Chain</title>
+    <title>PancakeSwap - Swap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,118 +13,87 @@
         }
 
         body {
-            font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #08060B;
-            color: #F4EEFF;
-            overflow-x: hidden;
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(139.73deg, rgb(229, 253, 255) 0%, rgb(243, 239, 255) 100%);
             min-height: 100vh;
-        }
-
-        /* REAL PANCAKESWAP DARK THEME COLORS */
-        :root {
-            --dark-bg: #08060B;
-            --card-bg: #27262c;
-            --input-bg: #1e1e26;
-            --primary: #1FC7D4;
-            --secondary: #7645D9;
-            --text-primary: #F4EEFF;
-            --text-secondary: #B8ADD2;
-            --border: #383241;
-            --hover: #372f47;
         }
 
         /* Header */
         .header {
-            background: #27262c;
-            border-bottom: 2px solid var(--border);
-            padding: 16px 0;
-            position: fixed;
+            background: white;
+            padding: 16px 24px;
+            border-bottom: 1px solid #E7E3EB;
+            position: sticky;
             top: 0;
-            width: 100%;
-            z-index: 1000;
+            z-index: 100;
         }
 
-        .nav-container {
-            max-width: 1400px;
+        .header-inner {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 700;
             font-size: 20px;
+            font-weight: 700;
+            color: #280D5F;
         }
 
-        .logo img {
+        .logo-circle {
             width: 32px;
             height: 32px;
-        }
-
-        .nav-menu {
+            background: linear-gradient(45deg, #FFD800, #EB8C00);
+            border-radius: 50%;
             display: flex;
-            list-style: none;
-            gap: 24px;
             align-items: center;
+            justify-content: center;
+            font-size: 16px;
         }
 
-        .nav-item a {
-            color: var(--text-secondary);
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #280D5F;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            transition: color 0.2s;
         }
 
-        .nav-item a:hover {
-            color: var(--text-primary);
-        }
-
-        .connect-wallet-btn {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border: none;
+        .wallet-btn {
+            background: linear-gradient(135deg, #1FC7D4 0%, #7645D9 100%);
             color: white;
+            border: none;
             padding: 12px 24px;
             border-radius: 16px;
             font-weight: 600;
-            font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s;
+            font-size: 16px;
         }
 
-        .connect-wallet-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(31, 199, 212, 0.4);
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-top: 80px;
-            padding: 40px 24px;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+        /* Main */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 16px;
             display: flex;
             justify-content: center;
-            min-height: calc(100vh - 80px);
-            align-items: center;
         }
 
-        /* Swap Card */
-        .swap-card {
-            background: var(--card-bg);
-            border-radius: 24px;
+        .swap-box {
+            background: white;
+            border-radius: 32px;
             padding: 24px;
             width: 100%;
-            max-width: 480px;
-            border: 1px solid var(--border);
+            max-width: 420px;
+            box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
         }
 
         .swap-header {
@@ -133,142 +103,100 @@
             margin-bottom: 24px;
         }
 
-        .swap-header h2 {
+        .swap-header h1 {
             font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .settings-btn {
-            background: var(--input-bg);
-            border: none;
-            color: var(--text-secondary);
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .settings-btn:hover {
-            background: var(--hover);
-        }
-
-        .swap-tabs {
-            display: flex;
-            background: var(--input-bg);
-            border-radius: 16px;
-            padding: 4px;
-            margin-bottom: 24px;
-            gap: 4px;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 12px;
-            text-align: center;
-            border-radius: 12px;
-            cursor: pointer;
             font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s;
-            color: var(--text-secondary);
+            color: #280D5F;
+        }
+
+        .settings-icon {
+            background: none;
             border: none;
-            background: transparent;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px;
+            color: #7A7A9D;
         }
 
-        .tab.active {
-            background: var(--card-bg);
-            color: var(--text-primary);
-        }
-
-        .tab:hover:not(.active) {
-            background: var(--hover);
-        }
-
-        .token-input-container {
-            background: var(--input-bg);
-            border: 2px solid var(--border);
+        .input-box {
+            background: #EEEAF4;
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 8px;
-            transition: all 0.2s;
         }
 
-        .token-input-container:hover {
-            border-color: var(--hover);
-        }
-
-        .token-input-header {
+        .input-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
-        .token-label {
+        .input-label {
             font-size: 12px;
-            color: var(--text-secondary);
+            color: #7645D9;
             font-weight: 600;
         }
 
         .balance {
             font-size: 12px;
-            color: var(--text-secondary);
+            color: #7A7A9D;
         }
 
-        .token-input-main {
+        .input-main {
             display: flex;
-            align-items: center;
             gap: 12px;
+            align-items: center;
         }
 
-        .token-select-btn {
+        .token-btn {
+            background: white;
+            border: none;
+            padding: 4px 12px 4px 4px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             gap: 8px;
-            background: var(--card-bg);
-            border: none;
-            border-radius: 16px;
-            padding: 8px 12px;
             cursor: pointer;
-            transition: all 0.2s;
-            color: var(--text-primary);
-            font-weight: 700;
+            box-shadow: 0px 2px 8px rgba(14, 14, 44, 0.1);
+            font-weight: 600;
             font-size: 16px;
+            color: #280D5F;
+            white-space: nowrap;
         }
 
-        .token-select-btn:hover {
-            background: var(--hover);
-        }
-
-        .token-logo {
+        .token-img {
             width: 24px;
             height: 24px;
             border-radius: 50%;
         }
 
-        .amount-input {
+        .amount {
             flex: 1;
-            background: transparent;
+            background: none;
             border: none;
-            outline: none;
-            color: var(--text-primary);
             font-size: 24px;
             font-weight: 600;
+            color: #280D5F;
             text-align: right;
+            outline: none;
+            font-family: 'Kanit', sans-serif;
         }
 
-        .amount-input::placeholder {
-            color: var(--text-secondary);
-            opacity: 0.5;
+        .amount::placeholder {
+            color: #BDC2C4;
         }
 
-        .swap-arrow-container {
+        /* Remove number input arrows */
+        .amount::-webkit-outer-spin-button,
+        .amount::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .amount[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .swap-middle {
             display: flex;
             justify-content: center;
             margin: -4px 0;
@@ -276,553 +204,387 @@
             z-index: 1;
         }
 
-        .swap-arrow-btn {
-            background: var(--card-bg);
-            border: 4px solid #08060B;
+        .swap-arrow {
+            background: white;
+            border: 4px solid rgb(229, 253, 255);
+            width: 32px;
+            height: 32px;
             border-radius: 12px;
-            width: 40px;
-            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s;
-            color: var(--text-primary);
+            color: #7645D9;
+            font-weight: bold;
+            transition: transform 0.3s;
         }
 
-        .swap-arrow-btn:hover {
+        .swap-arrow:hover {
             transform: rotate(180deg);
         }
 
-        .swap-info {
-            margin-top: 16px;
-            padding: 16px;
-            background: var(--input-bg);
-            border-radius: 16px;
-        }
-
-        .swap-info-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .swap-info-row:last-child {
-            margin-bottom: 0;
-        }
-
         .swap-btn {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border: none;
-            color: white;
-            padding: 18px;
-            border-radius: 16px;
-            font-weight: 700;
-            font-size: 18px;
             width: 100%;
+            background: linear-gradient(135deg, #1FC7D4 0%, #7645D9 100%);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
             margin-top: 16px;
+            font-family: 'Kanit', sans-serif;
         }
 
-        .swap-btn:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(31, 199, 212, 0.4);
-        }
-
-        .swap-btn:disabled {
-            background: var(--input-bg);
-            color: var(--text-secondary);
-            cursor: not-allowed;
-        }
-
-        /* Token Selector Modal */
-        .modal-overlay {
+        /* Modal */
+        .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
             align-items: center;
-            z-index: 2000;
-            backdrop-filter: blur(4px);
+            justify-content: center;
+            padding: 16px;
         }
 
-        .modal-overlay.show {
+        .modal.show {
             display: flex;
         }
 
-        .modal-content {
-            background: var(--card-bg);
+        .modal-box {
+            background: white;
             border-radius: 24px;
-            padding: 24px;
-            width: 90%;
+            width: 100%;
             max-width: 420px;
-            max-height: 80vh;
-            overflow-y: auto;
-            border: 1px solid var(--border);
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        .modal-header {
+        .modal-head {
+            padding: 24px;
+            border-bottom: 1px solid #E7E3EB;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
         }
 
-        .modal-header h3 {
+        .modal-head h2 {
             font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
+            color: #280D5F;
         }
 
-        .close-modal-btn {
+        .close-btn {
             background: none;
             border: none;
             font-size: 28px;
+            color: #7A7A9D;
             cursor: pointer;
-            color: var(--text-secondary);
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            transition: all 0.2s;
+            line-height: 1;
         }
 
-        .close-modal-btn:hover {
-            background: var(--hover);
-            color: var(--text-primary);
+        .modal-body {
+            padding: 16px 24px 24px;
+            overflow-y: auto;
         }
 
-        .token-search-input {
+        .search {
             width: 100%;
-            padding: 14px 16px;
-            background: var(--input-bg);
-            border: 2px solid var(--border);
+            padding: 12px 16px;
+            background: #EEEAF4;
+            border: 1px solid #E7E3EB;
             border-radius: 16px;
             font-size: 16px;
-            margin-bottom: 20px;
             outline: none;
-            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-family: 'Kanit', sans-serif;
         }
 
-        .token-search-input:focus {
-            border-color: var(--secondary);
+        .popular {
+            margin-bottom: 20px;
         }
 
-        .token-search-input::placeholder {
-            color: var(--text-secondary);
+        .popular-title {
+            font-size: 12px;
+            color: #7A7A9D;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
         }
 
         .popular-tokens {
-            margin-bottom: 20px;
-        }
-
-        .popular-tokens h4 {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .popular-tokens-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
         }
 
-        .popular-token-chip {
-            background: var(--input-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
+        .pop-chip {
+            background: #EEEAF4;
+            border: none;
             padding: 6px 12px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             gap: 6px;
-            color: var(--text-primary);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            color: #280D5F;
+            font-family: 'Kanit', sans-serif;
         }
 
-        .popular-token-chip:hover {
-            background: var(--hover);
-            border-color: var(--secondary);
+        .pop-chip:hover {
+            background: #D8CDE6;
         }
 
-        .popular-token-chip img {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
+        .token-list {
+            display: flex;
+            flex-direction: column;
         }
 
-        .token-list-container {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .token-list-item {
+        .token-row {
             display: flex;
             align-items: center;
-            padding: 12px;
-            cursor: pointer;
+            padding: 12px 8px;
             border-radius: 12px;
-            transition: all 0.2s;
+            cursor: pointer;
             gap: 12px;
         }
 
-        .token-list-item:hover {
-            background: var(--hover);
+        .token-row:hover {
+            background: #F4EEFF;
         }
 
-        .token-list-logo {
-            width: 32px;
-            height: 32px;
+        .token-logo {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
         }
 
-        .token-list-info {
+        .token-details {
             flex: 1;
         }
 
-        .token-list-name {
-            font-weight: 700;
-            color: var(--text-primary);
+        .token-name {
             font-size: 16px;
-            margin-bottom: 2px;
-        }
-
-        .token-list-symbol {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .token-list-balance {
-            font-size: 14px;
-            color: var(--text-primary);
             font-weight: 600;
+            color: #280D5F;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .token-desc {
+            font-size: 14px;
+            color: #7A7A9D;
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--input-bg);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--hover);
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-menu {
+            .nav-links {
                 display: none;
             }
-
-            .main-content {
-                padding: 20px 16px;
+            .container {
+                padding: 24px 12px;
             }
-
-            .swap-card {
+            .swap-box {
                 padding: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <a href="#" class="logo">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <circle cx="16" cy="16" r="16" fill="url(#gradient)"/>
-                    <defs>
-                        <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
-                            <stop offset="0%" stop-color="#1FC7D4"/>
-                            <stop offset="100%" stop-color="#7645D9"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                PancakeSwap
-            </a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#">Trade</a></li>
-                <li class="nav-item"><a href="#">Earn</a></li>
-                <li class="nav-item"><a href="#">Win</a></li>
-                <li class="nav-item"><a href="#">NFT</a></li>
-                <li class="nav-item"><a href="#">...</a></li>
-            </ul>
-            <button class="connect-wallet-btn">Connect Wallet</button>
-        </nav>
-    </header>
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-circle">🥞</div>
+                <span>PancakeSwap</span>
+            </div>
+            <div class="nav-links">
+                <a href="#">Trade</a>
+                <a href="#">Earn</a>
+                <a href="#">Win</a>
+                <a href="#">NFT</a>
+            </div>
+            <button class="wallet-btn">Connect Wallet</button>
+        </div>
+    </div>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="swap-card">
+    <div class="container">
+        <div class="swap-box">
             <div class="swap-header">
-                <h2>Swap</h2>
-                <button class="settings-btn">⚙️</button>
+                <h1>Swap</h1>
+                <button class="settings-icon">⚙️</button>
             </div>
 
-            <div class="swap-tabs">
-                <button class="tab active">Swap</button>
-                <button class="tab">Limit</button>
-                <button class="tab">Liquidity</button>
-            </div>
-
-            <!-- From Token -->
-            <div class="token-input-container">
-                <div class="token-input-header">
-                    <span class="token-label">From</span>
-                    <span class="balance">Balance: 0.5234</span>
+            <div class="input-box">
+                <div class="input-top">
+                    <span class="input-label">From</span>
+                    <span class="balance">-</span>
                 </div>
-                <div class="token-input-main">
-                    <button class="token-select-btn" onclick="openTokenModal('from')">
-                        <img src="https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png" alt="BNB" class="token-logo">
+                <div class="input-main">
+                    <button class="token-btn" onclick="openModal('from')">
+                        <img src="https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png" class="token-img">
                         <span>BNB</span>
-                        <span>▼</span>
+                        <span style="font-size: 12px;">▼</span>
                     </button>
-                    <input type="text" class="amount-input" placeholder="0.0" id="fromAmount">
+                    <input type="number" class="amount" placeholder="0.0" id="input1">
                 </div>
             </div>
 
-            <!-- Swap Arrow -->
-            <div class="swap-arrow-container">
-                <button class="swap-arrow-btn" onclick="swapTokens()">⇅</button>
+            <div class="swap-middle">
+                <div class="swap-arrow" onclick="swapAll()">⇅</div>
             </div>
 
-            <!-- To Token -->
-            <div class="token-input-container">
-                <div class="token-input-header">
-                    <span class="token-label">To (estimate)</span>
-                    <span class="balance">Balance: 142.3421</span>
+            <div class="input-box">
+                <div class="input-top">
+                    <span class="input-label">To</span>
+                    <span class="balance">-</span>
                 </div>
-                <div class="token-input-main">
-                    <button class="token-select-btn" onclick="openTokenModal('to')">
-                        <img src="https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png" alt="CAKE" class="token-logo">
+                <div class="input-main">
+                    <button class="token-btn" onclick="openModal('to')">
+                        <img src="https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png" class="token-img">
                         <span>CAKE</span>
-                        <span>▼</span>
+                        <span style="font-size: 12px;">▼</span>
                     </button>
-                    <input type="text" class="amount-input" placeholder="0.0" id="toAmount">
+                    <input type="number" class="amount" placeholder="0.0" id="input2">
                 </div>
             </div>
 
-            <!-- Swap Info -->
-            <div class="swap-info">
-                <div class="swap-info-row">
-                    <span>Price</span>
-                    <span>1 BNB = 189.34 CAKE</span>
-                </div>
-                <div class="swap-info-row">
-                    <span>Slippage Tolerance</span>
-                    <span>0.5%</span>
-                </div>
-            </div>
-
-            <!-- Swap Button -->
             <button class="swap-btn">Connect Wallet</button>
         </div>
-    </main>
+    </div>
 
-    <!-- Token Selector Modal -->
-    <div class="modal-overlay" id="tokenModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Select a token</h3>
-                <button class="close-modal-btn" onclick="closeTokenModal()">&times;</button>
+    <div class="modal" id="modal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h2>Select a token</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
             </div>
+            <div class="modal-body">
+                <input type="text" class="search" placeholder="Search name or paste address" id="search" oninput="filter()">
 
-            <input type="text" class="token-search-input" placeholder="Search name or paste address" id="tokenSearch" oninput="searchTokens()">
+                <div class="popular">
+                    <div class="popular-title">Popular tokens</div>
+                    <div class="popular-tokens">
+                        <button class="pop-chip" onclick="pick('BNB', 'https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png')">
+                            <img src="https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png" width="16" height="16" style="border-radius:50%">
+                            BNB
+                        </button>
+                        <button class="pop-chip" onclick="pick('CAKE', 'https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png')">
+                            <img src="https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png" width="16" height="16" style="border-radius:50%">
+                            CAKE
+                        </button>
+                        <button class="pop-chip" onclick="pick('USDT', 'https://tokens.pancakeswap.finance/images/0x55d398326f99059fF775485246999027B3197955.png')">
+                            <img src="https://tokens.pancakeswap.finance/images/0x55d398326f99059fF775485246999027B3197955.png" width="16" height="16" style="border-radius:50%">
+                            USDT
+                        </button>
+                        <button class="pop-chip" onclick="pick('ETH', 'https://tokens.pancakeswap.finance/images/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png')">
+                            <img src="https://tokens.pancakeswap.finance/images/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png" width="16" height="16" style="border-radius:50%">
+                            ETH
+                        </button>
+                    </div>
+                </div>
 
-            <div class="popular-tokens">
-                <h4>Popular tokens</h4>
-                <div class="popular-tokens-grid">
-                    <div class="popular-token-chip" onclick="selectToken('BNB', 'https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png', '0.5234')">
-                        <img src="https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png" alt="BNB">
-                        BNB
+                <div class="token-list" id="list">
+                    <div class="token-row" onclick="pick('BNB', 'https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png')" data-s="bnb binance coin">
+                        <img src="https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png" class="token-logo">
+                        <div class="token-details">
+                            <div class="token-name">BNB</div>
+                            <div class="token-desc">Binance Coin</div>
+                        </div>
                     </div>
-                    <div class="popular-token-chip" onclick="selectToken('CAKE', 'https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png', '142.3421')">
-                        <img src="https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png" alt="CAKE">
-                        CAKE
+                    <div class="token-row" onclick="pick('CAKE', 'https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png')" data-s="cake pancakeswap">
+                        <img src="https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png" class="token-logo">
+                        <div class="token-details">
+                            <div class="token-name">CAKE</div>
+                            <div class="token-desc">PancakeSwap Token</div>
+                        </div>
                     </div>
-                    <div class="popular-token-chip" onclick="selectToken('USDT', 'https://tokens.pancakeswap.finance/images/0x55d398326f99059fF775485246999027B3197955.png', '1000.00')">
-                        <img src="https://tokens.pancakeswap.finance/images/0x55d398326f99059fF775485246999027B3197955.png" alt="USDT">
-                        USDT
+                    <div class="token-row" onclick="pick('USDT', 'https://tokens.pancakeswap.finance/images/0x55d398326f99059fF775485246999027B3197955.png')" data-s="usdt tether">
+                        <img src="https://tokens.pancakeswap.finance/images/0x55d398326f99059fF775485246999027B3197955.png" class="token-logo">
+                        <div class="token-details">
+                            <div class="token-name">USDT</div>
+                            <div class="token-desc">Tether USD</div>
+                        </div>
                     </div>
-                    <div class="popular-token-chip" onclick="selectToken('ETH', 'https://tokens.pancakeswap.finance/images/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png', '0.2341')">
-                        <img src="https://tokens.pancakeswap.finance/images/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png" alt="ETH">
-                        ETH
+                    <div class="token-row" onclick="pick('ETH', 'https://tokens.pancakeswap.finance/images/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png')" data-s="eth ethereum">
+                        <img src="https://tokens.pancakeswap.finance/images/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png" class="token-logo">
+                        <div class="token-details">
+                            <div class="token-name">ETH</div>
+                            <div class="token-desc">Ethereum</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="token-list-container" id="tokenList">
-                <div class="token-list-item" onclick="selectToken('BNB', 'https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png', '0.5234')" data-name="BNB" data-symbol="Binance Coin">
-                    <img src="https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png" alt="BNB" class="token-list-logo">
-                    <div class="token-list-info">
-                        <div class="token-list-name">BNB</div>
-                        <div class="token-list-symbol">Binance Coin</div>
+                    <div class="token-row" onclick="pick('BUSD', 'https://tokens.pancakeswap.finance/images/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.png')" data-s="busd binance usd">
+                        <img src="https://tokens.pancakeswap.finance/images/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.png" class="token-logo">
+                        <div class="token-details">
+                            <div class="token-name">BUSD</div>
+                            <div class="token-desc">Binance USD</div>
+                        </div>
                     </div>
-                    <div class="token-list-balance">0.5234</div>
-                </div>
-                <div class="token-list-item" onclick="selectToken('CAKE', 'https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png', '142.3421')" data-name="CAKE" data-symbol="PancakeSwap Token">
-                    <img src="https://tokens.pancakeswap.finance/images/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png" alt="CAKE" class="token-list-logo">
-                    <div class="token-list-info">
-                        <div class="token-list-name">CAKE</div>
-                        <div class="token-list-symbol">PancakeSwap Token</div>
+                    <div class="token-row" onclick="pick('BTCB', 'https://tokens.pancakeswap.finance/images/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c.png')" data-s="btcb bitcoin">
+                        <img src="https://tokens.pancakeswap.finance/images/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c.png" class="token-logo">
+                        <div class="token-details">
+                            <div class="token-name">BTCB</div>
+                            <div class="token-desc">Bitcoin BEP20</div>
+                        </div>
                     </div>
-                    <div class="token-list-balance">142.3421</div>
-                </div>
-                <div class="token-list-item" onclick="selectToken('USDT', 'https://tokens.pancakeswap.finance/images/0x55d398326f99059fF775485246999027B3197955.png', '1000.00')" data-name="USDT" data-symbol="Tether USD">
-                    <img src="https://tokens.pancakeswap.finance/images/0x55d398326f99059fF775485246999027B3197955.png" alt="USDT" class="token-list-logo">
-                    <div class="token-list-info">
-                        <div class="token-list-name">USDT</div>
-                        <div class="token-list-symbol">Tether USD</div>
-                    </div>
-                    <div class="token-list-balance">1000.00</div>
-                </div>
-                <div class="token-list-item" onclick="selectToken('ETH', 'https://tokens.pancakeswap.finance/images/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png', '0.2341')" data-name="ETH" data-symbol="Ethereum">
-                    <img src="https://tokens.pancakeswap.finance/images/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png" alt="ETH" class="token-list-logo">
-                    <div class="token-list-info">
-                        <div class="token-list-name">ETH</div>
-                        <div class="token-list-symbol">Ethereum</div>
-                    </div>
-                    <div class="token-list-balance">0.2341</div>
-                </div>
-                <div class="token-list-item" onclick="selectToken('BUSD', 'https://tokens.pancakeswap.finance/images/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.png', '500.00')" data-name="BUSD" data-symbol="Binance USD">
-                    <img src="https://tokens.pancakeswap.finance/images/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.png" alt="BUSD" class="token-list-logo">
-                    <div class="token-list-info">
-                        <div class="token-list-name">BUSD</div>
-                        <div class="token-list-symbol">Binance USD</div>
-                    </div>
-                    <div class="token-list-balance">500.00</div>
-                </div>
-                <div class="token-list-item" onclick="selectToken('WBNB', 'https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png', '1.2341')" data-name="WBNB" data-symbol="Wrapped BNB">
-                    <img src="https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png" alt="WBNB" class="token-list-logo">
-                    <div class="token-list-info">
-                        <div class="token-list-name">WBNB</div>
-                        <div class="token-list-symbol">Wrapped BNB</div>
-                    </div>
-                    <div class="token-list-balance">1.2341</div>
-                </div>
-                <div class="token-list-item" onclick="selectToken('BTCB', 'https://tokens.pancakeswap.finance/images/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c.png', '0.0123')" data-name="BTCB" data-symbol="Bitcoin BEP20">
-                    <img src="https://tokens.pancakeswap.finance/images/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c.png" alt="BTCB" class="token-list-logo">
-                    <div class="token-list-info">
-                        <div class="token-list-name">BTCB</div>
-                        <div class="token-list-symbol">Bitcoin BEP20</div>
-                    </div>
-                    <div class="token-list-balance">0.0123</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        let currentTokenSelection = 'from';
+        let current = 'from';
 
-        function openTokenModal(direction) {
-            currentTokenSelection = direction;
-            document.getElementById('tokenModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
+        function openModal(type) {
+            current = type;
+            document.getElementById('modal').classList.add('show');
         }
 
-        function closeTokenModal() {
-            document.getElementById('tokenModal').classList.remove('show');
-            document.body.style.overflow = 'auto';
-            document.getElementById('tokenSearch').value = '';
-            searchTokens();
+        function closeModal() {
+            document.getElementById('modal').classList.remove('show');
+            document.getElementById('search').value = '';
+            filter();
         }
 
-        function selectToken(symbol, logo, balance) {
-            const direction = currentTokenSelection;
-            const container = document.querySelector(`#${direction}Amount`).closest('.token-input-container');
-            const button = container.querySelector('.token-select-btn');
-
-            button.querySelector('.token-logo').src = logo;
-            button.querySelector('span').textContent = symbol;
-            container.querySelector('.balance').textContent = `Balance: ${balance}`;
-
-            closeTokenModal();
+        function pick(name, url) {
+            const btns = document.querySelectorAll('.token-btn');
+            const btn = current === 'from' ? btns[0] : btns[1];
+            btn.querySelector('.token-img').src = url;
+            btn.querySelector('span').textContent = name;
+            closeModal();
         }
 
-        function swapTokens() {
-            const fromContainer = document.querySelector('#fromAmount').closest('.token-input-container');
-            const toContainer = document.querySelector('#toAmount').closest('.token-input-container');
+        function swapAll() {
+            const btns = document.querySelectorAll('.token-btn');
+            const i1 = document.getElementById('input1');
+            const i2 = document.getElementById('input2');
 
-            // Get from token data
-            const fromBtn = fromContainer.querySelector('.token-select-btn');
-            const fromLogo = fromBtn.querySelector('.token-logo').src;
-            const fromSymbol = fromBtn.querySelector('span').textContent;
-            const fromBalance = fromContainer.querySelector('.balance').textContent;
-            const fromAmount = document.getElementById('fromAmount').value;
+            const t1 = btns[0].querySelector('.token-img').src;
+            const n1 = btns[0].querySelector('span').textContent;
+            const v1 = i1.value;
 
-            // Get to token data
-            const toBtn = toContainer.querySelector('.token-select-btn');
-            const toLogo = toBtn.querySelector('.token-logo').src;
-            const toSymbol = toBtn.querySelector('span').textContent;
-            const toBalance = toContainer.querySelector('.balance').textContent;
-            const toAmount = document.getElementById('toAmount').value;
+            btns[0].querySelector('.token-img').src = btns[1].querySelector('.token-img').src;
+            btns[0].querySelector('span').textContent = btns[1].querySelector('span').textContent;
+            i1.value = i2.value;
 
-            // Swap
-            fromBtn.querySelector('.token-logo').src = toLogo;
-            fromBtn.querySelector('span').textContent = toSymbol;
-            fromContainer.querySelector('.balance').textContent = toBalance;
-            document.getElementById('fromAmount').value = toAmount;
-
-            toBtn.querySelector('.token-logo').src = fromLogo;
-            toBtn.querySelector('span').textContent = fromSymbol;
-            toContainer.querySelector('.balance').textContent = fromBalance;
-            document.getElementById('toAmount').value = fromAmount;
+            btns[1].querySelector('.token-img').src = t1;
+            btns[1].querySelector('span').textContent = n1;
+            i2.value = v1;
         }
 
-        function searchTokens() {
-            const searchTerm = document.getElementById('tokenSearch').value.toLowerCase();
-            const tokens = document.querySelectorAll('.token-list-item');
-
-            tokens.forEach(token => {
-                const name = token.getAttribute('data-name').toLowerCase();
-                const symbol = token.getAttribute('data-symbol').toLowerCase();
-
-                if (name.includes(searchTerm) || symbol.includes(searchTerm)) {
-                    token.style.display = 'flex';
-                } else {
-                    token.style.display = 'none';
-                }
+        function filter() {
+            const s = document.getElementById('search').value.toLowerCase();
+            document.querySelectorAll('.token-row').forEach(r => {
+                r.style.display = r.getAttribute('data-s').includes(s) ? 'flex' : 'none';
             });
         }
 
-        // Close modal on overlay click
-        document.getElementById('tokenModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeTokenModal();
-            }
-        });
-
-        // Tab switching
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
+        document.getElementById('modal').onclick = function(e) {
+            if (e.target === this) closeModal();
+        };
     </script>
 </body>
 </html>
